@@ -1,6 +1,6 @@
 ---
 author: "Hugo Authors"
-title: "Emoji Support"
+title: "1Emoji Support"
 date: 2021-07-15
 description: "Guide to emoji usage in Hugo"
 tags: ["emoji"]
