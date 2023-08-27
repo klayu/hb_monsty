@@ -16,6 +16,8 @@ git remote remove origin
 git remote add origin https://$gh_username:$gh_token@github.com/klayu/$gh_repository.git
 git remote -v
 
+echo Emptying gh-pages
+find ../gh-pages -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -r {} \;
 
 rm -f hugo.toml
 rm -rf publicTmp
