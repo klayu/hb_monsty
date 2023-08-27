@@ -1,6 +1,7 @@
 ---
 title: "Thank You"
 hideMeta : true
+toc : true
 noComment: true
 ---
 I wanted to take a moment to express my deepest gratitude for subscribing to my blog. Your decision to join our community of readers means a lot to me, and I am truly honored that you have chosen to stay connected with my work.
