@@ -1,6 +1,6 @@
 
 ---
-title: "1A Boat in the Forest"
+title: "2A Boat in the Forest"
 date: 2023-08-24T15:40:41.581Z
 draft: false
 # description: "New Year’s Resolutions for INFJs"

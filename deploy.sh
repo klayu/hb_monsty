@@ -40,8 +40,9 @@ npm run build
 
 
 echo "Emptying gh-pages"
-git branch -D gh-pages
-git push origin --delete gh-pages
+# git branch -D gh-pages
+# git push origin --delete gh-pages
+git push origin --delete --force gh-pages
 
 cd ..
 git worktree remove -f gh-pages
