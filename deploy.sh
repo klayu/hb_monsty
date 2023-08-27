@@ -48,8 +48,9 @@ git worktree remove -f gh-pages
 git worktree add gh-pages
 find ./gh-pages -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -r {} \;
 
-cd builder
+
 echo "Copying to gh-pages"
+cd builder
 cp -a publicTmp/. ../gh-pages
 # cd ../gh-pages
 cd ../gh-pages && git add --all && git commit -m "gh-pages branch `date`"
