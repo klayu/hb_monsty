@@ -16,13 +16,6 @@ git remote remove origin
 git remote add origin https://$gh_username:$gh_token@github.com/klayu/$gh_repository.git
 git remote -v
 
-echo Emptying gh-pages
-git branch -D gh-pages
-git push origin --delete gh-pages
-cd ..
-git worktree remove gh-pages
-git worktree add gh-pages
-find ./gh-pages -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -r {} \;
 # cd ../gh-pages
 # git checkout --orphan empty_commit_branch
 # git rm -rf .
@@ -36,14 +29,26 @@ find ./gh-pages -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -r {} \;
 # git worktree add gh-pages
 
 # find ../gh-pages -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -r {} \;
-cd builder
-
 rm -f hugo.toml
 rm -rf publicTmp
 mkdir publicTmp
 
-echo "Generating sit
+echo "Generating site"
 npm run build
+# HUGO_ENV=production  hugo # -t "ananke"
+# echo 'www.mericanrx.com' >> publicTmp/CNAME
+
+
+echo "Emptying gh-pages"
+git branch -D gh-pages
+git push origin --delete gh-pages
+
+cd ..
+git worktree remove -f gh-pages
+git worktree add gh-pages
+find ./gh-pages -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -r {} \;
+
+cd builder
 echo "Copying to gh-pages"
 cp -a publicTmp/. ../gh-pages
 # cd ../gh-pages
@@ -53,8 +58,7 @@ echo "Pushing to github gh-pages branch"
 # git push origin gh-pages 
 git push origin HEAD:gh-pages
 
-# HUGO_ENV=production  hugo # -t "ananke"
-# echo 'www.mericanrx.com' >> public/CNAME
+
 
 echo "Updating builder branch"
 cd ../builder && rm -rf publicTmp && git add --all && git commit -m "Saving to builder branch"
