@@ -78,7 +78,7 @@ timeout = 600000
   copyright = "Copyright © 2023 - Monsty.co · All rights reserved"
   favicon = "/favicon.svg"
 #
-  ascentColor = "bg-blue-100"
+  ascentColor = "bg-pink-100"
 #
   frontBundle = "blog"
 #
